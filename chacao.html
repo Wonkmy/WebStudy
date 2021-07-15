@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <game>
+            <gameTitle slot="gameTitle" Title="王者荣耀"></gameTitle>
+            <gameScene slot="gameScene"></gameScene>
+        </game>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+
+    <script>
+        Vue.component("game",{
+            template:'<div>'+
+                            '<slot name="gameTitle"></slot>'+
+                            '<ul>'+
+                                '<slot name="gameScene"></slot>'+
+                            '</ul>'+
+                     '</div>'
+        });
+
+        Vue.component("gameTitle",{
+            props:["Title"],
+            template:'<div>{{Title}}</div>'
+        });
+
+        Vue.component("gameScene",{
+            props:["Scene"],
+            template:'<li>{{Scene}}</li>'
+        });
+
+
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                gameSceneName:['主菜单场景',"战斗场景","活动场景"]
+            }
+        });
+    </script>
+</body>
+</html>

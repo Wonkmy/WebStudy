@@ -1,0 +1,17 @@
+{
+    "age":25,
+    "address":{
+        "name":"合肥",
+        "area":"包河区",
+        "country":"中国",
+        "link":"https://www.baidu.com"
+    },
+    "book":[
+        {"name":"语文书","count":134},
+        {"name":"数学书","count":194}
+    ],
+    "person":[
+        {"name":"语文书"},
+        {"name":"数学书"}
+    ]
+}
