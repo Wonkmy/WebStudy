@@ -9,36 +9,37 @@
 <body>
     <div id="app">
         <game>
-            <gameTitle slot="gameTitle" Title="王者荣耀"></gameTitle>
-            <gameScene slot="gameScene"></gameScene>
+            <game-title slot="game-title" :title="title"></game-title>
+            <game-scene slot="game-scene" v-for="item in gameSceneName" :scene="item"></game-scene>
         </game>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
 
     <script>
+
         Vue.component("game",{
-            template:'<div>'+
-                            '<slot name="gameTitle"></slot>'+
-                            '<ul>'+
-                                '<slot name="gameScene"></slot>'+
-                            '</ul>'+
-                     '</div>'
+            template:'<div>\
+                            <slot name="game-title"></slot>\
+                            <ul>\
+                                <slot name="game-scene"></slot>\
+                            </ul>\
+                      </game>'
         });
 
-        Vue.component("gameTitle",{
-            props:["Title"],
-            template:'<div>{{Title}}</div>'
+        Vue.component("game-title",{
+            props:["title"],
+            template:'<div>{{title}}</div>'
         });
 
-        Vue.component("gameScene",{
-            props:["Scene"],
-            template:'<li>{{Scene}}</li>'
+        Vue.component("game-scene",{
+            props:["scene"],
+            template:'<li>{{scene}}</li>'
         });
-
 
         var vm=new Vue({
             el:"#app",
             data:{
+                title:'王者荣耀',
                 gameSceneName:['主菜单场景',"战斗场景","活动场景"]
             }
         });
